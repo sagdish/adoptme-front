@@ -1,7 +1,9 @@
+import Layout from '../../components/Layout'
+
 export default function SearchPage() {
   return (
-    <div>
+    <Layout>
       <h1>Search Page</h1>
-    </div>
+    </Layout>
   )
 }

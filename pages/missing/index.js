@@ -1,7 +1,9 @@
+import Layout from "../../components/Layout"
+
 export default function MissingPets() {
   return (
-    <div>
+    <Layout>
       <h1>Default page for missing pets</h1>
-    </div>
+    </Layout>
   )
 }

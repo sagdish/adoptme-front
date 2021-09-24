@@ -1,7 +1,9 @@
+import Layout from '../../components/Layout'
+
 export default function MissingPet() {
   return (
-    <div>
+    <Layout>
       <h1>Dynamic page</h1>
-    </div>
+    </Layout>
   )
 }
