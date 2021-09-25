@@ -1,0 +1,64 @@
+{
+  "pets": [
+    {
+      "id": "1",
+      "name": "Rex",
+      "slug": "rex",
+      "address": "Shoyhantahur, Tashkent",
+      "owners": "Lina",
+      "date": "September 09, 2021",
+      "description": "Looking for my German shepherd",
+      "image": "/images/dog_sample.png"
+    },
+    {
+      "id": "2",
+      "name": "Cata",
+      "slug": "cata",
+      "address": "Chilonzor, Tashkent",
+      "owners": "Liza",
+      "date": "September109, 2021",
+      "description": "Looking for my belowed cat",
+      "image": "/images/dog_sample.png"
+    },
+    {
+      "id": "3",
+      "name": "Tina",
+      "slug": "tina",
+      "address": "Olmazor, Tashkent",
+      "owners": "Timur",
+      "date": "August 09, 2021",
+      "description": "Looking for my Golder Retreiver",
+      "image": "/images/dog_sample.png"
+    },
+    {
+      "id": "4",
+      "name": "Rex",
+      "slug": "rex",
+      "address": "Shoyhantahur, Tashkent",
+      "owners": "Lina",
+      "date": "September 09, 2021",
+      "description": "Looking for my German shepherd",
+      "image": "/images/dog_sample.png"
+    },
+    {
+      "id": "5",
+      "name": "Rex",
+      "slug": "rex",
+      "address": "Shoyhantahur, Tashkent",
+      "owners": "Lina",
+      "date": "September 09, 2021",
+      "description": "Looking for my German shepherd",
+      "image": "/images/dog_sample.png"
+    },
+    {
+      "id": "6",
+      "name": "Rex",
+      "slug": "rex",
+      "address": "Shoyhantahur, Tashkent",
+      "owners": "Lina",
+      "date": "September 09, 2021",
+      "description": "Looking for my German shepherd",
+      "image": "/images/dog_sample.png"
+    }
+  ]
+}
