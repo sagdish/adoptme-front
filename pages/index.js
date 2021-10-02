@@ -1,14 +1,16 @@
+import { useState } from 'react'
 import Link from 'next/link'
 import Layout from '@/components/Layout'
 import PetItem from '@/components/PetItem'
 import { API_URL } from '../config/index'
 
 export default function HomePage({data}) {
-  console.log(data)
+  const [ lang, setLang ] = useState('rus');
+
   return (
     <Layout>
-      <h1>Missing Pets</h1>
-      {data.length === 0 && <h3>No Missing Pets - Hooray! or Not listed on this Platform</h3>}
+      <h1>{lang === rus ? 'Потерявшиеся Питомцы' : 'Missing Pets'}</h1>
+      {data.length === 0 && <h3>{lang === rus ? 'Потеряшек нет на данный момент, ура!' : 'No Missing Pets - Hooray! or Not listed on this Platform'}</h3>}
 
       {data.map(pet => (
         <PetItem key={pet.id} pet={pet} />
