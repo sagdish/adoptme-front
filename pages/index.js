@@ -9,8 +9,8 @@ export default function HomePage({data}) {
 
   return (
     <Layout>
-      <h1>{lang === rus ? 'Потерявшиеся Питомцы' : 'Missing Pets'}</h1>
-      {data.length === 0 && <h3>{lang === rus ? 'Потеряшек нет на данный момент, ура!' : 'No Missing Pets - Hooray! or Not listed on this Platform'}</h3>}
+      <h1>{lang === 'rus' ? 'Потерявшиеся Питомцы' : 'Missing Pets'}</h1>
+      {data.length === 0 && <h3>{lang === 'rus' ? 'Потеряшек нет на данный момент, ура!' : 'No Missing Pets - Hooray! or Not listed on this Platform'}</h3>}
 
       {data.map(pet => (
         <PetItem key={pet.id} pet={pet} />
