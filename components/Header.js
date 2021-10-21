@@ -13,7 +13,7 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <Link href='/missing'>
+            <Link href='/pets'>
               <a>Missing Pets</a>
             </Link>
           </li>

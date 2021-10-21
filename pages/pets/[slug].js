@@ -15,7 +15,7 @@ export default function MissingPet({ pet }) {
     <Layout>
       <div className={styles.pet}>
         <div className={styles.controls}>
-          <Link href={`/missing/edit/${pet.id}`}>
+          <Link href={`/pets/edit/${pet.id}`}>
             <a>
               <FaPencilAlt /> Edit Entry
             </a>
@@ -26,12 +26,12 @@ export default function MissingPet({ pet }) {
         </div>
 
         <span>
-          {pet.date}
+          {new Date(pet.created_at).toLocaleDateString('ru-RU')}
         </span>
         <h1>{pet.name}</h1>
-        {pet.image && (
+        {pet.photos && (
           <div className={styles.image}>
-            <Image src={pet.image} width={960} height={600} />
+            <Image src={pet.photos[0].formats.medium.url} width={960} height={600} />
           </div>
         )}
 
@@ -42,7 +42,7 @@ export default function MissingPet({ pet }) {
         <h3>Address</h3>
         <p>{pet.address}</p>
 
-        <Link href='/missing'>
+        <Link href='/pets'>
           <a className={styles.back}>
             {'<'} Go Back 
           </a>
@@ -53,7 +53,7 @@ export default function MissingPet({ pet }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const res = await fetch(`${API_URL}/api/pets/${slug}`)
+  const res = await fetch(`${API_URL}/pets?slug=${slug}`)
   const pets = await res.json()
 
   return {

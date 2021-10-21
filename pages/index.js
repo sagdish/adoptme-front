@@ -7,6 +7,7 @@ import { API_URL } from '../config/index'
 export default function HomePage({data}) {
   const [ lang, setLang ] = useState('rus');
 
+  console.log('data: ', data)
   return (
     <Layout>
       <h1>{lang === 'rus' ? 'Потерявшиеся Питомцы' : 'Missing Pets'}</h1>
@@ -17,7 +18,7 @@ export default function HomePage({data}) {
       ))}
 
       {data.length > 0 && (
-        <Link href='/missing'>
+        <Link href='/pets'>
           <a className='btn-secondary'>View All</a>
         </Link>
       )}
@@ -26,7 +27,7 @@ export default function HomePage({data}) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(`${API_URL}/api/pets`)
+  const res = await fetch(`${API_URL}/pets?_limit=3`)
   const data = await res.json()
 
   return {
