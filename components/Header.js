@@ -20,6 +20,11 @@ export default function Header() {
               <a>Missing Pets</a>
             </Link>
           </li>
+          <li>
+            <Link href='/pets/add'>
+              <a>Add pet</a>
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
