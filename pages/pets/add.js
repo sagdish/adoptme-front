@@ -32,8 +32,8 @@ export default function AddPetPage() {
       toast.error('Please fill in all fields')
       return
     }
-
-    const res = await fetch(`${API_URL}/`, {
+    // console.log(JSON.stringify(values))
+    const res = await fetch(`${API_URL}/pets`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json' 
@@ -43,6 +43,8 @@ export default function AddPetPage() {
 
     if (!res.ok) {
       toast.error('Something Went Wrong')
+      const err = await res.json()
+      console.log(err)
     } else {
       const pet = await res.json()
       router.push(`pets/${pet.slug}`)
@@ -107,14 +109,14 @@ export default function AddPetPage() {
 
           <div>
             <label htmlFor='type'>Pet type {'&'} Reason</label>
-            <select name='type' required onChange={handleInputChange}>
+            <select name='type'  onChange={handleInputChange}>
               <option value=''>Pet type</option>
               <option value='dog'>Dog</option>
               <option value='cat'>Cat</option>
               <option value='other'>Other</option>
             </select>
 
-            <select name='reason' required onChange={handleInputChange}>
+            <select name='reason'  onChange={handleInputChange}>
               <option value=''>Reason</option>
               <option value='lost'>Lost pet</option>
               <option value='adoption'>Adoption</option>

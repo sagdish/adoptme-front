@@ -31,7 +31,7 @@ export default function MissingPet({ pet }) {
         <h1>{pet.name}</h1>
         {pet.photos && (
           <div className={styles.image}>
-            <Image src={pet.photos[0].formats.medium.url} width={960} height={600} />
+            <Image src={pet.photos.length > 0 ? pet.photos[0].formats.medium.url : '/images/dog_sample.png'} width={960} height={600} />
           </div>
         )}
 

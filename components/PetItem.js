@@ -3,12 +3,12 @@ import Image from 'next/image'
 import styles from '@/styles/PetItem.module.css'
 
 export default function PetItem({pet}) {
-  console.log(pet.photos)
+  console.log('pet.photos', pet.photos)
   return (
     <div className={styles.pet}>
 
       <div className={styles.img}>
-        <Image src={pet.photos? pet.photos[0].formats.thumbnail.url : '/images/dog_sample.png'} 
+        <Image src={pet.photos.length > 0 ? pet.photos[0].formats.thumbnail.url : '/images/dog_sample.png'} 
           width={170} height={100}
         />
       </div>
