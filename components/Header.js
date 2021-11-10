@@ -22,7 +22,7 @@ export default function Header() {
           </li>
           <li>
             <Link href='/pets/add'>
-              <a>Add pet</a>
+              <a>Add Pet</a>
             </Link>
           </li>
         </ul>

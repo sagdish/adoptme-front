@@ -33,7 +33,7 @@ export async function getServerSideProps({query: {term}}) {
     }
   })
 
-  console.log('query: ', query)
+  // console.log('query: ', query)
 
   const res = await fetch(`${API_URL}/pets?${query}`)
   const data = await res.json()

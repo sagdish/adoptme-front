@@ -1,3 +1,6 @@
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -19,9 +22,32 @@ export default function AddPetPage() {
   })
 
   const router = useRouter()
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     // take tags and convert it to array of tags before sending to an API
+
+    // validation
+    const hasEmptyFields = Object.values(values).some(value => value === '')
+    if (hasEmptyFields) {
+      toast.error('Please fill in all fields')
+      return
+    }
+
+    const res = await fetch(`${API_URL}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json' 
+      },
+      body: JSON.stringify(values)
+    })
+
+    if (!res.ok) {
+      toast.error('Something Went Wrong')
+    } else {
+      const pet = await res.json()
+      router.push(`pets/${pet.slug}`)
+    }
+
   }
   const handleInputChange = e => {
     const {name, value} = e.target
@@ -32,6 +58,7 @@ export default function AddPetPage() {
     <Layout title="Add new pet">
       <Link href='/pets'>Go Back</Link>
       <h1>Add pet page</h1>
+      <ToastContainer />
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.grid}>
           <div>
@@ -81,14 +108,14 @@ export default function AddPetPage() {
           <div>
             <label htmlFor='type'>Pet type {'&'} Reason</label>
             <select name='type' required onChange={handleInputChange}>
-              <option value=''>Choose one</option>
+              <option value=''>Pet type</option>
               <option value='dog'>Dog</option>
               <option value='cat'>Cat</option>
               <option value='other'>Other</option>
             </select>
 
             <select name='reason' required onChange={handleInputChange}>
-              <option value=''>Choose one</option>
+              <option value=''>Reason</option>
               <option value='lost'>Lost pet</option>
               <option value='adoption'>Adoption</option>
             </select>
